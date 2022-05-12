@@ -60,45 +60,14 @@ export default {
 
   methods: {
     search() {
-      // 编程式路由导航
-      // this.$router.push(`/search/${this.keyword}`)
-
-      const location = {
+      let location = {
         name: "search",
-        query: this.$route.query, // 将当前就有的query参数携带上
+        params: { keyword: this.keyword },
       };
-      // 只有数据时, 才携带params参数
+      console.log(location);
       if (this.keyword) {
-        location.params = {
-          // 路由必须配置name
-          keyword: this.keyword,
-        };
-        // location.query = {
-        //   keyword2: this.keyword.toUpperCase()
-        // }
-      }
-
-      /* 
-      router.push(location, onComplete?, onAbort?)
-      router.push(location).then(onComplete).catch(onAbort)
-      */
-
-      /* 
-      从其它页到搜索页: push()
-      从搜索到搜索页: replace()
-      */
-      if (this.$route.name === "search") {
-        // 当前是搜索
-        this.$router.replace(location);
-      } else {
         this.$router.push(location);
       }
-
-      // 解决重复跳转路由的错误:
-      // 方法一: 传入成功的回调函数函数
-      // console.log(this.$router.push(location, () => {}))
-      // 方法: catch处理错误的promise
-      // console.log(this.$router.push(location)).catch(() => {})
     },
   },
 

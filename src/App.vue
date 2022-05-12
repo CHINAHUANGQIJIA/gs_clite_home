@@ -3,7 +3,9 @@
     <div class="page">
       <div class="header"><Header></Header></div>
       <div class="home"><router-view></router-view></div>
-      <div class="footer"><Footer></Footer></div>
+      <div class="footer">
+        <Footer v-show="!$route.meta.isHideFooter"></Footer>
+      </div>
     </div>
   </div>
 </template>

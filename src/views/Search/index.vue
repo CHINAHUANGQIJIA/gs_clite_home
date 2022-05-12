@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <h1>{{ keyword3 }}</h1>
+    <h1>{{ $route.params.keyword }}</h1>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   name: "Search",
   components: {},
-  props: ["keyword3"],
+  props: [],
   data() {
     return {};
   },
